@@ -1,7 +1,8 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import * as Antd from "antd";
 import { withFormik, FormikErrors, FormikProps, Field, Form } from "formik";
-import { loginSchema } from "@airstay/common";
+import { validUserSchema } from "@abb/common";
 import { InputField } from "../../shared/InputField";
 
 const { Form: AntForm, Icon, Button } = Antd;
@@ -57,7 +58,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
             </Button>
           </FormItem>
           <FormItem>
-            Or <a href="">login now!</a>
+            Or <Link>login now!</Link>
           </FormItem>
         </div>
       </Form>

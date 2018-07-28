@@ -9,7 +9,7 @@ exports.registerPasswordValidation = yup
     .min(3, exports.passwordNotLongEnough)
     .max(255)
     .required();
-exports.loginSchema = yup.object().shape({
+exports.validUserSchema = yup.object().shape({
     email: yup
         .string()
         .min(3, exports.emailNotLongEnough)
@@ -17,5 +17,19 @@ exports.loginSchema = yup.object().shape({
         .email(exports.invalidEmail)
         .required(),
     password: exports.registerPasswordValidation
+});
+const invalidLogin = "invalid login";
+exports.loginSchema = yup.object().shape({
+    email: yup
+        .string()
+        .min(3, invalidLogin)
+        .max(255, exports.invalidEmail)
+        .email(invalidLogin)
+        .required(),
+    password: yup
+        .string()
+        .min(3, invalidLogin)
+        .max(255, invalidLogin)
+        .required()
 });
 //# sourceMappingURL=user.js.map
