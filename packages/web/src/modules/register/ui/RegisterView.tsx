@@ -1,11 +1,10 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import * as Antd from "antd";
+import { Form as AntForm, Icon, Button } from "antd";
 import { withFormik, FormikErrors, FormikProps, Field, Form } from "formik";
 import { validUserSchema } from "@abb/common";
 import { InputField } from "../../shared/InputField";
+import { Link } from "react-router-dom";
 
-const { Form: AntForm, Icon, Button } = Antd;
 const FormItem = AntForm.Item;
 
 interface FormValues {
@@ -24,10 +23,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
         <div style={{ width: 400, margin: "auto" }}>
           <Field
             name="email"
-            // tslint:disable-next-line:jsx-no-multiline-js
             prefix={
               <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} /> as any
-              // tslint:disable-next-line:jsx-curly-spacing
             }
             placeholder="Email"
             component={InputField}
@@ -35,10 +32,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
           <Field
             name="password"
             type="password"
-            // tslint:disable-next-line:jsx-no-multiline-js
             prefix={
               <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} /> as any
-              // tslint:disable-next-line:jsx-curly-spacing
             }
             placeholder="Password"
             component={InputField}
@@ -58,7 +53,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
             </Button>
           </FormItem>
           <FormItem>
-            Or <Link>login now!</Link>
+            Or <Link to="/login">login now!</Link>
           </FormItem>
         </div>
       </Form>
@@ -67,7 +62,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 }
 
 export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema: loginSchema,
+  validationSchema: validUserSchema,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);

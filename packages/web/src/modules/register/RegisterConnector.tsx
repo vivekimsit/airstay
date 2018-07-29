@@ -1,5 +1,5 @@
 import * as React from "react";
-import { RegisterController } from "@airstay/controller";
+import { RegisterController } from "@abb/controller";
 
 import { RegisterView } from "./ui/RegisterView";
 

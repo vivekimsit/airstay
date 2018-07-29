@@ -1,11 +1,11 @@
 import * as React from "react";
+import { Form as AntForm, Icon, Button } from "antd";
+import { withFormik, FormikProps, Field, Form } from "formik";
+import { loginSchema } from "@abb/common";
 import { Link } from "react-router-dom";
-import * as Antd from "antd";
-import { withFormik, FormikErrors, FormikProps, Field, Form } from "formik";
-import { loginSchema } from "@airstay/common";
+
 import { InputField } from "../../shared/InputField";
 
-const { Form: AntForm, Icon, Button } = Antd;
 const FormItem = AntForm.Item;
 
 interface FormValues {
@@ -14,7 +14,11 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (
+    values: FormValues
+  ) => Promise<{
+    [key: string]: string;
+  } | null>;
 }
 
 class C extends React.PureComponent<FormikProps<FormValues> & Props> {
@@ -24,10 +28,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
         <div style={{ width: 400, margin: "auto" }}>
           <Field
             name="email"
-            // tslint:disable-next-line:jsx-no-multiline-js
             prefix={
               <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} /> as any
-              // tslint:disable-next-line:jsx-curly-spacing
             }
             placeholder="Email"
             component={InputField}
@@ -35,10 +37,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
           <Field
             name="password"
             type="password"
-            // tslint:disable-next-line:jsx-no-multiline-js
             prefix={
               <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} /> as any
-              // tslint:disable-next-line:jsx-curly-spacing
             }
             placeholder="Password"
             component={InputField}
@@ -54,11 +54,11 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
               htmlType="submit"
               className="login-form-button"
             >
-              Login
+              login
             </Button>
           </FormItem>
           <FormItem>
-            Or <Link>login now!</Link>
+            Or <Link to="/register">register</Link>
           </FormItem>
         </div>
       </Form>
@@ -68,6 +68,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 
 export const LoginView = withFormik<Props, FormValues>({
   validationSchema: loginSchema,
+  validateOnChange: false,
+  validateOnBlur: false,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
