@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Form as AntForm, Icon, Button } from "antd";
 import { withFormik, FormikProps, Field, Form } from "formik";
-import { loginSchema } from "@abb/common";
+import { loginSchema } from "@airstay/common";
 import { Link } from "react-router-dom";
 
 import { InputField } from "../../shared/InputField";
