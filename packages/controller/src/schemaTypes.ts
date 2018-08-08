@@ -4,6 +4,22 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: MeQuery
+// ====================================================
+
+export interface MeQuery_me {
+  email: string;
+}
+
+export interface MeQuery {
+  me: MeQuery_me | null;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: ForgotPasswordChangeMutation
 // ====================================================
 
@@ -19,6 +35,55 @@ export interface ForgotPasswordChangeMutation {
 export interface ForgotPasswordChangeMutationVariables {
   newPassword: string;
   key: string;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: CreateListingMutation
+// ====================================================
+
+export interface CreateListingMutation {
+  createListing: boolean;
+}
+
+export interface CreateListingMutationVariables {
+  picture?: any | null;
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+  beds: number;
+  guests: number;
+  latitude: number;
+  longitude: number;
+  amenities: string[];
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: FindListingsQuery
+// ====================================================
+
+export interface FindListingsQuery_findListings_owner {
+  id: string;
+  email: string;
+}
+
+export interface FindListingsQuery_findListings {
+  id: string;
+  name: string;
+  pictureUrl: string;
+  owner: FindListingsQuery_findListings_owner;
+}
+
+export interface FindListingsQuery {
+  findListings: FindListingsQuery_findListings[];
 }
 
 
