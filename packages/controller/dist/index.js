@@ -5,4 +5,5 @@ export * from "./modules/ChangePasswordController";
 export * from "./modules/CreateListing";
 export * from "./modules/FindListings";
 export * from "./modules/auth/AuthRoute";
+export * from "./modules/LogoutController";
 //# sourceMappingURL=index.js.map
