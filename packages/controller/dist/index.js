@@ -8,4 +8,5 @@ export * from "./modules/auth/AuthRoute";
 export * from "./modules/LogoutController";
 export * from "./modules/ViewListing";
 export * from "./modules/ViewMessages";
+export * from "./modules/CreateMessage";
 //# sourceMappingURL=index.js.map

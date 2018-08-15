@@ -30,6 +30,12 @@ export interface CreateListingMutationVariables {
     longitude: number;
     amenities: string[];
 }
+export interface CreateMessageMutation {
+    createMessage: boolean;
+}
+export interface CreateMessageMutationVariables {
+    message: MessageInput;
+}
 export interface FindListingsQuery_findListings_owner {
     id: string;
     email: string;
@@ -108,5 +114,12 @@ export interface ViewMessagesQuery {
     messages: ViewMessagesQuery_messages[];
 }
 export interface ViewMessagesQueryVariables {
+    listingId: string;
+}
+/**
+ *
+ */
+export interface MessageInput {
+    text: string;
     listingId: string;
 }

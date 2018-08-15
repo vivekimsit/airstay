@@ -18,7 +18,7 @@ class C extends React.PureComponent<WithFindListings> {
             style={{ width: 240 }}
             cover={l.pictureUrl && <img alt="example" src={l.pictureUrl} />}
           >
-            <Link to={`/listings/${l.id}`}>
+            <Link to={`/listing/${l.id}`}>
               <Meta title={l.name} description={l.owner.email} />
             </Link>
           </Card>
@@ -27,4 +27,5 @@ class C extends React.PureComponent<WithFindListings> {
     );
   }
 }
+
 export const FindListingsConnector = withFindListings(C);
