@@ -84,6 +84,13 @@ export interface RegisterMutationVariables {
     email: string;
     password: string;
 }
+export interface UpdateListingMutation {
+    updateListing: boolean;
+}
+export interface UpdateListingMutationVariables {
+    listingId: string;
+    input: UpdateListingInput;
+}
 export interface ViewListingQuery_viewListing_owner {
     id: string;
     email: string;
@@ -92,6 +99,13 @@ export interface ViewListingQuery_viewListing {
     id: string;
     name: string;
     category: string;
+    description: string;
+    price: number;
+    beds: number;
+    guests: number;
+    longitude: number;
+    latitude: number;
+    amenities: string[];
     pictureUrl: string;
     owner: ViewListingQuery_viewListing_owner;
 }
@@ -122,4 +136,19 @@ export interface ViewMessagesQueryVariables {
 export interface MessageInput {
     text: string;
     listingId: string;
+}
+/**
+ *
+ */
+export interface UpdateListingInput {
+    name?: string | null;
+    picture?: any | null;
+    category?: string | null;
+    description?: string | null;
+    price?: number | null;
+    beds?: number | null;
+    guests?: number | null;
+    latitude?: number | null;
+    longitude?: number | null;
+    amenities?: string[] | null;
 }

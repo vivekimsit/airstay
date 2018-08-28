@@ -1,6 +1,7 @@
 input UpdateListingInput {
   name: String
   picture: Upload
+  pictureUrl: String
   category: String
   description: String
   price: Int
@@ -12,5 +13,5 @@ input UpdateListingInput {
 }
 
 type Mutation {
-  createListing(listingId: String!, input: UpdateListingInput!): Boolean!
+  updateListing(listingId: String!, input: UpdateListingInput!): Boolean!
 }
